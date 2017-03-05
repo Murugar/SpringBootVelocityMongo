@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <title>Spring Boot Velocity Mongo</title>
+    <link rel="stylesheet" type="text/css" href="/css/welcome.css">
+</head>
+
+<body>
+
+#if($time)
+<p id="result">
+   <br/>
+   $time
+   <br/>
+   $message
+</p>
+#end
+
+
+
+
+
+<h1>Spring Boot Velocity Mongo Demo</h1>
+<p id="main">
+    <form action="/" method="post">
+    <p>Enter URL to shorten</p>
+    <input type="url" name="url" required>
+    <input type="submit" value="Shorten URL">
+    </form>
+</p>
+
+#if($url)
+<p id="result">
+    URL <a href="$fullurl">$fullurl</a> is shortened to <a href="$url">$url</a>
+</p>
+#end
+
+<p id="stats">
+    $shortenedURLs URLs shortened and $redirects redirects served.
+</p>
+
+</body>
+</html>
