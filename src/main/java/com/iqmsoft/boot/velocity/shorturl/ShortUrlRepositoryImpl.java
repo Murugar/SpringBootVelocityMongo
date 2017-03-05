@@ -3,7 +3,6 @@ package com.iqmsoft.boot.velocity.shorturl;
 import static org.springframework.data.mongodb.core.aggregation.Aggregation.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
@@ -16,23 +15,23 @@ import lombok.extern.slf4j.Slf4j;
 @Repository
 public class ShortUrlRepositoryImpl implements ShortUrlRepositoryCustom {
 
-	private final MongoOperations operations;
+	private final MongoTemplate mtemplate;
 
 	@Autowired
-	public ShortUrlRepositoryImpl(MongoTemplate operations) {
-		this.operations = operations;
+	public ShortUrlRepositoryImpl(MongoTemplate mtemplate) {
+		this.mtemplate = mtemplate;
 	}
 
 	
 	@Override
 	public Integer getTotalRedirectSum() {
 
-		if (operations != null) {
+		if (mtemplate != null) {
 			
 			log.debug("Not Null Operations");
 			
 			AggregationResults<SumResult> results = 
-					operations.aggregate(Aggregation.newAggregation(ShortUrl.class,
+					mtemplate.aggregate(Aggregation.newAggregation(ShortUrl.class,
 					match(Criteria.where("redirectCount").gte(0)), 
 					Aggregation.group().sum("redirectCount").as("total")),
 					SumResult.class);
