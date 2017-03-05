@@ -20,7 +20,7 @@ public class WelcomeController {
     private ShortUrlRepository repository;
 
     @Value("${application.message:Spring Boot}")
-    private String message = "Spring Boot";
+    private String message = "Spring Boot Velocity";
 
     @Value("${server.address:localhost}")
     private String serverAddress = "localhost";

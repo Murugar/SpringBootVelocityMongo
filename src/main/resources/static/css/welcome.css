@@ -1,6 +1,6 @@
 body {
-    background: url("/images/abs6.jpg");
-    background-color: black;
+    /*background: url("/images/abs6.jpg");*/
+    background-color: blue;
 }
 
 /*site container*/
@@ -21,7 +21,7 @@ h1 {
 
 p {
     font: 16px Open Sans;
-    color: #AEAEAE;
+    color: yellow;
     text-shadow: #000 0px 1px 5px;
     margin-bottom: 30px;
 }
@@ -63,7 +63,7 @@ input[type="submit"] {
     background-image: -o-linear-gradient(#28D2DE 0%, #1A878F 100%);
     background-image: linear-gradient(#28D2DE 0%, #1A878F 100%);
     font: 17px Oswald;
-    color: #FFF;
+    color: yellow;
     text-transform: uppercase;
     text-shadow: #000 0px 1px 5px;
     border: 1px solid #000;
